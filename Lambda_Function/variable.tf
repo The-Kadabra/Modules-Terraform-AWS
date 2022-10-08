@@ -1,55 +1,54 @@
 ########
 #GLOBAL#
 ########
-
-variable "account" {
-    default = {
-            api-qa           = "207886776780"
-            api-pci          = "077918978000"
-            }
-}
-
-variable "executions" {
-    default = 1
-}
-
 variable "project" {
-    default = "batch-card-migrator"  
+    default = "Nome-do-Projeto"  
 }
 
 variable "tags" {
     default = {
-            Channel             = " "
-            TopChannel          = "api"
-            Domain              = "paymentmethods"
-            SubDomain           = " "
-            TopDomain           = "psp"
-            BusinessUnit        = "Pagamentos Digitais"
-            CriticalLevel       = 1
-            Email               = "l-pagseguro-berlim@uolinc.com"
-            EscalationList      = "l-pagseguro-berlim"
-            FilaIm              = "l-pagseguro-berlim"
-            Product             = "batch-card-migrator"
-            Slack               = "ec_berlim"
-            Team                = "Berlim"
-            ApplicationRole     = "Application"
+            E-mail             = ""
+            Time               = ""
             }
 }
 
-variable "region" {
-    default = {
-            api-qa           = "us-east-1"           
-            api-pci          = "sa-east-1"
 
-            }
+#########
+#LAMBDA #
+#########
+variable "filename" {
+    type    = string
+    default = "binario.zip"
+}
+variable "handler" {
+    type    = string
+    default = "lambda_handler"
+}
+variable "description" {
+    type    = string
+    default = "https://URL-DO-REPO"
+}
+variable "runtime" {
+    type    = string
+    default = "python3.8"
+}
+variable "timeout" {
+    type    = number
+    default = 900
+}
+variable "memory_size" {
+    default = "1024"
 }
 
-variable "profile" {
-    default = {
-            api-qa           = "api-qa"
-            api-pci          = "api-pci"
-            }
+variable "role" {
+    default = "arn:aws:iam::aws:policy/service-role/AWSLambdaRole"
 }
 
-variable "environment" {
+########
+#SUBNET#
+########
+
+variable "subnet_ids" {
+    type    = string
+    default = ""
 }
